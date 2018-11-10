@@ -248,6 +248,7 @@ set(UI_TEST_SOURCES
     ${GUI_TESTDIR}/test_field_colorpicker.cpp
     ${GUI_TESTDIR}/test_field_slider.cpp
     ${GUI_TESTDIR}/test_optionsgroup.cpp
+    ${GUI_TESTDIR}/test_preset.cpp
     ${GUI_TESTDIR}/test_misc_ui.cpp
 )
 
@@ -349,6 +350,7 @@ IF(wxWidgets_FOUND AND Enable_GUI)
     ${GUI_LIBDIR}/GUI.cpp
     ${GUI_LIBDIR}/MainFrame.cpp
     ${GUI_LIBDIR}/Plater.cpp
+    ${GUI_LIBDIR}/Preset.cpp
     ${GUI_LIBDIR}/Scene3D.cpp
     ${GUI_LIBDIR}/Plater/Plate2D.cpp
     ${GUI_LIBDIR}/Plater/Plate3D.cpp
@@ -403,7 +405,7 @@ IF(wxWidgets_FOUND AND Enable_GUI)
         endif()
         add_executable(gui_test ${UI_TEST_SOURCES}) 
         add_test(NAME TestGUI COMMAND gui_test)
-        target_link_libraries(gui_test PUBLIC libslic3r slic3r_gui Catch ${wxWidgets_LIBRARIES} ${LIBSLIC3R_DEPENDS} ${OPENGL_LIBRARIES})
+        target_link_libraries(gui_test PUBLIC slic3r_gui libslic3r Catch ${wxWidgets_LIBRARIES} ${LIBSLIC3R_DEPENDS} ${OPENGL_LIBRARIES})
     endif()
     if (WIN32)
         target_link_libraries(slic3r uxtheme)    
